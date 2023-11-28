@@ -23,22 +23,20 @@
         </div>
         <div class="row">
             <div class="col-md-12 mt-3">
-                <h3> Admin List </h3>
+                <h3> Customer List </h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Email</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @forelse ($admins as  $key => $row)
+                        @forelse ($message_categories as  $key => $row)
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>{{ $row->name }}</td>
-                                <td>{{ $row->email }}</td>
                             </tr>
                         @empty
                             <tr>
@@ -48,15 +46,10 @@
 
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {!! $message_categories->links() !!}
+                </div>
             </div>
-        </div>
-
-        <div class="row mt-5">
-            <h5 class="text-danger">Notes: i just added basic functionalities of this dataflow, there can be added more
-                functionalities such #Validaton #Proper data checking, Employee message checking,
-            </h5>
-            <h4><li>please run this command after running <br> php artisan migrate:fresh --seed </li></h4>
-
         </div>
     </div>
 
